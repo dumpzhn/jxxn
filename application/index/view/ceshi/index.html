@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>测试一下多语言</title>
+        <meta charset="utf-8" />
+        <script src="http://libs.baidu.com/jquery/1.10.2/jquery.js"></script>
+    </head>
+    <body>
+    <button type="button" lang='cn' class='btn'>{:lang('中文')}</button>
+    <button type="button" lang='en' class='btn'>{:lang('English')}</button>
+    <button type="button" lang='其它语言' class='btn'>{:lang('按钮3')}</button>
+    {:lang('其它语言变量')}
+    <div>名字</div>
+
+    </body>
+    <script>
+        $('.btn').click(function(){
+            var data={'lang':$(this).attr('lang')}
+            $.get("{:url('Ceshi/lang')}",data,function(){
+                location.reload();
+            })
+        })
+    </script>
+</html>
